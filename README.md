@@ -1,3 +1,3 @@
 # README
 
-A simple To-Do list using Ruby on Rails and Hotwire
+A simple To-Do list using Ruby on Rails, Hotwire and Tailwind.
