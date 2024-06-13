@@ -3,7 +3,8 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.all.reverse_order
+    @todo_tasks = Task.todo
+    @done_tasks = Task.done
   end
 
   # GET /tasks/1
@@ -25,7 +26,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.turbo_stream
+          format.turbo_stream
         format.html { redirect_to @task, notice: "Task was successfully created." }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace("#helpers.dom_id(@task)}_form", partial: "form", locals: { task: @task })}
